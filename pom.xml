@@ -13,7 +13,7 @@
   <description>Sample Maven project with a working, deployable site.</description>
   <url>http://www.example.com</url>
 
-  <!-- 🧱 Propiedades globales -->
+  <!--  Propiedades globales -->
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -21,13 +21,13 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-  <!-- 📦 Módulos del proyecto -->
+  <!--  Módulos del proyecto -->
   <modules>
     <module>server</module>
     <module>webapp</module>
   </modules>
 
-  <!-- 🌐 Distribución del sitio generado -->
+  <!--  Distribución del sitio generado -->
   <distributionManagement>
     <site>
       <id>site-server</id>
@@ -36,7 +36,7 @@
     </site>
   </distributionManagement>
 
-  <!-- ⚙️ Configuración de build -->
+  <!--  Configuración de build -->
   <build>
     <plugins>
 
@@ -117,7 +117,7 @@
     </pluginManagement>
   </build>
 
-  <!-- 🧩 Dependencias comunes -->
+  <!--  Dependencias comunes -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -151,7 +151,7 @@
     </dependencies>
   </dependencyManagement>
 
-  <!-- 🧾 Reportes -->
+  <!--  Reportes -->
   <reporting>
     <plugins>
       <plugin>
@@ -180,7 +180,7 @@
     </plugins>
   </reporting>
 
-  <!-- 🧭 Control de versiones -->
+  <!--  Control de versiones -->
   <scm>
     <connection>scm:git:git@github.com:jleetutorial/maven-project.git</connection>
     <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
@@ -188,7 +188,7 @@
     <url>https://github.com/jleetutorial/maven-project</url>
   </scm>
 
-  <!-- 🚫 Eliminado <prerequisites>, reemplazado por enforcer -->
+  <!-- Eliminado <prerequisites>, reemplazado por enforcer -->
   <build>
     <plugins>
       <plugin>
