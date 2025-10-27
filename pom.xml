@@ -8,11 +8,10 @@
   <groupId>com.example.maven-project</groupId>
   <artifactId>maven-project</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>war</packaging>  <!-- Cambiado de 'pom' a 'war' -->
   <name>Maven Project</name>
   <description>Sample Maven project with a working, deployable site.</description>
   <url>http://www.example.com</url>
-
 
   <!-- Propiedades globales -->
   <properties>
@@ -20,20 +19,10 @@
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    
-    <!-- Versiones de dependencias -->
-    <servlet-api.version>2.5</servlet-api.version>
-    <jsp-api.version>2.2</jsp-api.version>
-    <junit.version>4.13.2</junit.version>
-    <hamcrest.version>2.2</hamcrest.version>
-    <mockito.version>5.10.0</mockito.version>
   </properties>
 
-  <!-- Módulos del proyecto -->
-  <modules>
-    <module>server</module>
-    <module>webapp</module>
-  </modules>
+  <!-- ELIMINAR la sección de módulos -->
+  <!-- <modules>...</modules> -->
 
   <!-- Distribución del sitio generado -->
   <distributionManagement>
@@ -67,16 +56,6 @@
         </configuration>
       </plugin>
 
-      <!-- Plugin Release -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.1</version>
-        <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-        </configuration>
-      </plugin>
-
       <!-- Plugin de sitio -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -84,107 +63,34 @@
         <version>3.12.1</version>
       </plugin>
     </plugins>
-
-    <!-- Gestión de versiones de plugins -->
-    <pluginManagement>
-      <plugins>
-        <!-- Plugin de Checkstyle -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-        
-        <!-- Plugin de Javadoc -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.6.3</version>
-        </plugin>
-        
-        <!-- Plugin PMD -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.21.2</version>
-        </plugin>
-        
-        <!-- Plugin Surefire (tests) -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.5</version>
-        </plugin>
-        
-        <!-- Plugin FindBugs (actualmente SpotBugs) -->
-        <plugin>
-          <groupId>com.github.spotbugs</groupId>
-          <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>4.8.3.1</version>
-        </plugin>
-        
-        <!-- Plugin Taglist -->
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>taglist-maven-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        
-        <!-- Plugin Jetty (versión más reciente) -->
-        <plugin>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-maven-plugin</artifactId>
-          <version>11.0.20</version>
-        </plugin>
-        
-        <!-- Plugin JXR para reportes -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jxr-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-        
-        <!-- Plugin Surefire Report -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-report-plugin</artifactId>
-          <version>3.2.5</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
   <!-- Dependencias comunes -->
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
         <version>3.1.0</version>
         <scope>provided</scope>
     </dependency>
-<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
     <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
         <version>2.1</version>
         <scope>provided</scope>
     </dependency>
-<!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
         <scope>test</scope>
     </dependency>
-<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
     <dependency>
         <groupId>org.hamcrest</groupId>
         <artifactId>hamcrest</artifactId>
         <version>2.2</version>
         <scope>test</scope>
     </dependency>
-<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
     <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
@@ -198,31 +104,13 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.6.3</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>taglist-maven-plugin</artifactId>
+        <version>3.2.5</version>
       </plugin>
     </plugins>
   </reporting>
