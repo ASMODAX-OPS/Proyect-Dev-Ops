@@ -118,7 +118,6 @@
   </build>
 
   <!--  Dependencias comunes -->
-  <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>javax.servlet</groupId>
@@ -149,7 +148,6 @@
         <scope>test</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
 
   <!--  Reportes -->
   <reporting>
