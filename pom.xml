@@ -13,6 +13,7 @@
   <description>Sample Maven project with a working, deployable site.</description>
   <url>http://www.example.com</url>
 
+
   <!-- Propiedades globales -->
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
